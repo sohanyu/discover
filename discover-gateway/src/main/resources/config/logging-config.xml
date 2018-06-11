@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <property name="log.path" value="classpath:logback_product.log"/>
+    <property name="log.path" value="logback_gateway.log"/>
 
     <!--<conversionRule conversionWord="traceid" converterClass="TraceIdConvert"/>-->
 
@@ -29,7 +29,7 @@
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/data/logs/logback_product.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logback_gateway.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
