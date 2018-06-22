@@ -1,4 +1,4 @@
-package net.ninini.code.mapper.config;
+package net.ninini.code.config.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -34,7 +34,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 @Configuration
-@MapperScan(basePackages = "net.ninini.code.mapper", sqlSessionTemplateRef = "mybatisMasterSqlSessionTemplate")
+@MapperScan(basePackages = "net.ninini.code.dao", sqlSessionTemplateRef = "mybatisMasterSqlSessionTemplate")
 @EnableTransactionManagement
 public class MybatisDataSourceConfig implements TransactionManagementConfigurer {
 
@@ -168,7 +168,7 @@ public class MybatisDataSourceConfig implements TransactionManagementConfigurer 
 
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/*/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:dao/*/*.xml"));
         bean.setVfs(SpringBootVFS.class);
         // 设置MyBatis分页插件
         PageInterceptor pageInterceptor = this.initPageInterceptor();
@@ -197,7 +197,7 @@ public class MybatisDataSourceConfig implements TransactionManagementConfigurer 
         MapperScannerConfigurer mScannerConfigurer = new MapperScannerConfigurer();
         mScannerConfigurer.setSqlSessionFactoryBeanName("mybatisMasterSqlSessionFactory");
         mScannerConfigurer.setBasePackage("net.ninini.code.entity");
-        //mScannerConfigurer.setBasePackage("net.ninini.code.mapper");
+        //mScannerConfigurer.setBasePackage("net.ninini.code.dao");
         return mScannerConfigurer;
     }
 

@@ -6,7 +6,7 @@
 //import org.mybatis.spring.SqlSessionFactoryBean;
 //import org.mybatis.spring.SqlSessionTemplate;
 //import org.mybatis.spring.annotation.MapperScan;
-//import org.mybatis.spring.mapper.MapperScannerConfigurer;
+//import org.mybatis.spring.dao.MapperScannerConfigurer;
 //import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 //import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -23,7 +23,7 @@
 //import java.util.Properties;
 //
 //@Configuration
-//@MapperScan(basePackages = "net.ninini.code.mapper", sqlSessionTemplateRef = "mybatisMasterSqlSessionTemplate")
+//@MapperScan(basePackages = "net.ninini.code.dao", sqlSessionTemplateRef = "mybatisMasterSqlSessionTemplate")
 //@EnableTransactionManagement
 //public class MybatisDataSourceConfigBak implements TransactionManagementConfigurer{
 //
@@ -51,7 +51,7 @@
 //    public SqlSessionFactory mybatisMasterSqlSessionFactory(@Qualifier("mybatisMasterDataSource") DataSource dataSource) throws Exception {
 //        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 //        bean.setDataSource(dataSource);
-//        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:com.mybatis.mapper/*.xml"));
+//        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:com.mybatis.dao/*.xml"));
 //
 //        // 设置MyBatis分页插件
 //        PageInterceptor pageInterceptor = this.initPageInterceptor();
@@ -65,7 +65,7 @@
 //        MapperScannerConfigurer mScannerConfigurer = new MapperScannerConfigurer();
 //        mScannerConfigurer.setSqlSessionFactoryBeanName("mybatisMasterSqlSessionFactory");
 //        mScannerConfigurer.setBasePackage("com.my.boot.test.entity");
-//        mScannerConfigurer.setBasePackage("com.my.boot.test.mapper");
+//        mScannerConfigurer.setBasePackage("com.my.boot.test.dao");
 //        return mScannerConfigurer;
 //    }
 //
