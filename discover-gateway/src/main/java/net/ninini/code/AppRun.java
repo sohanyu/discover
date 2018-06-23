@@ -9,8 +9,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @EnableEurekaClient
 @EnableZuulProxy
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @SpringCloudApplication
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 public class AppRun {
 
     public static void main(String[] args) {
