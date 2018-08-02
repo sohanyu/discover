@@ -103,7 +103,7 @@ public class JDBCConfig {
             datasource.setFilters(filters);
             datasource.init();
         } catch (SQLException e) {
-            logger.error("druid configuration initialization filter", e);
+            logger.error("druid configuration initialization run", e);
         }
         return datasource;
     }

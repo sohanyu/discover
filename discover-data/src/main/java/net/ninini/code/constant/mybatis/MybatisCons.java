@@ -1,4 +1,4 @@
-package net.ninini.code.constant;
+package net.ninini.code.constant.mybatis;
 
 public class MybatisCons {
 
