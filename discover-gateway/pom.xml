@@ -28,11 +28,11 @@
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>druid-spring-boot-starter</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
 
     </dependencies>
 

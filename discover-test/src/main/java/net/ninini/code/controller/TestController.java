@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 public class TestController {
 
-    @Value("{test}")
+    @Value("${test}")
     public String test;
 
     @Autowired
