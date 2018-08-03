@@ -16,7 +16,7 @@ public class JedisRedisConfig {
     private String password;
     @Value("${spring.redis.port}")
     private int port;
-    @Value("${spring.redis.timeout}")
+    @Value("${spring.redis.jedis.pool.timeout}")
     private int timeout;
     @Value("${spring.redis.jedis.pool.max-idle}")
     private int maxIdle;

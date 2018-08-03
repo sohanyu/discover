@@ -1,6 +1,8 @@
 package net.ninini.code.entity;
 
-public class TestEntity {
+import java.io.Serializable;
+
+public class TestEntity implements Serializable{
 
     private String description;
 
