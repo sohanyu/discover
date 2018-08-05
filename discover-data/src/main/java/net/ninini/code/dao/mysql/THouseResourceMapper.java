@@ -1,14 +1,11 @@
-package net.ninini.code.support;
+package net.ninini.code.dao.mysql;
 
+import java.util.List;
 import net.ninini.code.entity.THouseResource;
 import net.ninini.code.entity.THouseResourceExample;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
-public interface HouseResourceSupport {
-
-
+public interface THouseResourceMapper {
     long countByExample(THouseResourceExample example);
 
     int deleteByExample(THouseResourceExample example);
@@ -36,8 +33,4 @@ public interface HouseResourceSupport {
     int updateByPrimaryKeyWithBLOBs(THouseResource record);
 
     int updateByPrimaryKey(THouseResource record);
-
-
-
-
 }
