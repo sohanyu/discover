@@ -6,6 +6,6 @@ public class MybatisCons {
 
     public static final String MYBATIS_MAPPER_XML_PACKAGE = "classpath:mapper/**/*.xml";
 
-    public static final String MYBATIS_MAPPER_PACKAGE = "net.ninini.code.dao.test";
+    public static final String MYBATIS_MAPPER_PACKAGE = "net.ninini.code.dao.mysql";
 
 }
