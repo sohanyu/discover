@@ -45,54 +45,6 @@ public class RedisConf extends CachingConfigurerSupport {
 
     public static final Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
 
-    /*
-        @Bean
-        public CacheManager cacheManager(RedisConnectionFactory factory) {
-            RedisCacheManager cacheManager = RedisCacheManager.create(factory);
-            return cacheManager;
-        }
-    */
-
-
-    @Bean
-    public CacheManager cacheManager(@Qualifier("jedisConnectionFactory") JedisConnectionFactory factory) {
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();  // 生成一个默认配置，通过config对象即可对缓存进行自定义配置
-        config = config.entryTtl(Duration.ofMinutes(1))     // 设置缓存的默认过期时间，也是使用Duration设置
-                .disableCachingNullValues();     // 不缓存空值
-
-        // 设置一个初始化的缓存空间set集合
-        Set<String> cacheNames = new HashSet<>();
-        cacheNames.add("my-redis-cache1");
-        cacheNames.add("my-redis-cache2");
-
-        // 对每个缓存空间应用不同的配置
-        Map<String, RedisCacheConfiguration> configMap = new HashMap<>();
-        configMap.put("my-redis-cache1", config);
-        configMap.put("my-redis-cache2", config.entryTtl(Duration.ofSeconds(120)));
-
-        RedisCacheManager cacheManager = RedisCacheManager.builder(factory)     // 使用自定义的缓存配置初始化一个cacheManager
-                .initialCacheNames(cacheNames)  // 注意这两句的调用顺序，一定要先调用该方法设置初始化的缓存名，再初始化相关的配置
-                .withInitialCacheConfigurations(configMap)
-                .build();
-        return cacheManager;
-    }
-
-    /**
-     * RedisTemplate配置
-     */
-//    @Bean
-//    public RedisTemplate<?, ?> redisTemplate(RedisConnectionFactory factory) {
-//        StringRedisTemplate template = new StringRedisTemplate(factory);
-//        //定义key序列化方式
-//        //RedisSerializer<String> redisSerializer = new StringRedisSerializer();//Long类型会出现异常信息;需要我们上面的自定义key生成策略，一般没必要
-//        ObjectMapper om = new ObjectMapper();
-//        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-//        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-//        jackson2JsonRedisSerializer.setObjectMapper(om);
-//        template.setValueSerializer(jackson2JsonRedisSerializer);
-//        template.afterPropertiesSet();
-//        return template;
-//    }
 
     @Autowired
     private JedisConnectionFactory jedisConnectionFactory;
@@ -104,7 +56,7 @@ public class RedisConf extends CachingConfigurerSupport {
      * @return
      */
     @Bean
-    public RedisTemplate redisTemplate(JedisConnectionFactory jedisConnectionFactory ) {
+    public RedisTemplate redisTemplate(JedisConnectionFactory jedisConnectionFactory) {
         //设置序列化
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
         ObjectMapper om = new ObjectMapper();
@@ -121,6 +73,33 @@ public class RedisConf extends CachingConfigurerSupport {
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);//Hash value序列化
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
+    }
+
+
+    @Bean
+    public CacheManager cacheManager(@Qualifier("jedisConnectionFactory") JedisConnectionFactory factory) {
+
+        // 生成一个默认配置，通过config对象即可对缓存进行自定义配置
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
+
+        config = config.entryTtl(Duration.ofMinutes(1))     // 设置缓存的默认过期时间，也是使用Duration设置
+                .disableCachingNullValues();    // 不缓存空值
+
+        // 设置一个初始化的缓存空间set集合
+        Set<String> cacheNames = new HashSet<>();
+        cacheNames.add("my-redis-cache1");
+        cacheNames.add("my-redis-cache2");
+
+        // 对每个缓存空间应用不同的配置
+        Map<String, RedisCacheConfiguration> configMap = new HashMap<>();
+        configMap.put("my-redis-cache1", config);
+        configMap.put("my-redis-cache2", config.entryTtl(Duration.ofSeconds(120)));
+
+        RedisCacheManager cacheManager = RedisCacheManager.builder(factory)     // 使用自定义的缓存配置初始化一个cacheManager
+                .initialCacheNames(cacheNames)  // 注意这两句的调用顺序，一定要先调用该方法设置初始化的缓存名，再初始化相关的配置
+                .withInitialCacheConfigurations(configMap)
+                .build();
+        return cacheManager;
     }
 
     /**
@@ -143,6 +122,34 @@ public class RedisConf extends CachingConfigurerSupport {
             }
         };
     }
+
+    /*
+        //简单方式
+        @Bean
+        public CacheManager cacheManager(RedisConnectionFactory factory) {
+            RedisCacheManager cacheManager = RedisCacheManager.create(factory);
+            return cacheManager;
+        }
+    */
+
+
+    /**
+     * RedisTemplate配置
+     */
+//    @Bean
+//    public RedisTemplate<?, ?> redisTemplate(RedisConnectionFactory factory) {
+//        StringRedisTemplate template = new StringRedisTemplate(factory);
+//        //定义key序列化方式
+//        //RedisSerializer<String> redisSerializer = new StringRedisSerializer();//Long类型会出现异常信息;需要我们上面的自定义key生成策略，一般没必要
+//        ObjectMapper om = new ObjectMapper();
+//        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+//        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+//        jackson2JsonRedisSerializer.setObjectMapper(om);
+//        template.setValueSerializer(jackson2JsonRedisSerializer);
+//        template.afterPropertiesSet();
+//        return template;
+//    }
+
 
     //	@Bean
     //	public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {

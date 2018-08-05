@@ -18,23 +18,8 @@ import java.util.Map;
 @RestController
 public class TestController {
 
-    @Value("${location}")
-    public String test;
-
     @Autowired
     TestMapper testDao;
-
-    @RequestMapping("/hello")
-    public String index(@RequestParam String name) {
-        return "hello " + name + test;
-    }
-
-    @RequestMapping("/test")
-    public Object test(@RequestParam String name) {
-        Map map = Maps.newHashMap();
-        map.put("hello", name);
-        return map;
-    }
 
     @RequestLog
     @RequestMapping("/test2")
@@ -43,7 +28,7 @@ public class TestController {
         Map map = Maps.newHashMap();
         map.put("hello", testDao.test());
         System.out.println("执行");
-        return map;
+        return map.toString();
 
     }
 
