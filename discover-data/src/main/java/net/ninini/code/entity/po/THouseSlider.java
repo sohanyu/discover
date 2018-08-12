@@ -1,4 +1,4 @@
-package net.ninini.code.entity;
+package net.ninini.code.entity.po;
 
 public class THouseSlider {
     private Long pid;

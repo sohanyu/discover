@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.ninini.code.dao.mysql.THouseSliderMapper">
-  <resultMap id="BaseResultMap" type="net.ninini.code.entity.THouseSlider">
+  <resultMap id="BaseResultMap" type="net.ninini.code.entity.po.THouseSlider">
     <id column="pid" jdbcType="BIGINT" property="pid" />
     <result column="house_pid" jdbcType="BIGINT" property="housePid" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="net.ninini.code.entity.THouseSlider">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="net.ninini.code.entity.po.THouseSlider">
     <result column="image_uri" jdbcType="LONGVARCHAR" property="imageUri" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -73,7 +73,7 @@
   <sql id="Blob_Column_List">
     image_uri
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="net.ninini.code.entity.THouseSliderExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="net.ninini.code.entity.po.THouseSliderExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -89,7 +89,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="net.ninini.code.entity.THouseSliderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="net.ninini.code.entity.po.THouseSliderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -115,19 +115,19 @@
     delete from t_house_slider
     where pid = #{pid,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="net.ninini.code.entity.THouseSliderExample">
+  <delete id="deleteByExample" parameterType="net.ninini.code.entity.po.THouseSliderExample">
     delete from t_house_slider
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="net.ninini.code.entity.THouseSlider">
+  <insert id="insert" parameterType="net.ninini.code.entity.po.THouseSlider">
     insert into t_house_slider (pid, house_pid, sort, 
       image_uri)
     values (#{pid,jdbcType=BIGINT}, #{housePid,jdbcType=BIGINT}, #{sort,jdbcType=INTEGER}, 
       #{imageUri,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="net.ninini.code.entity.THouseSlider">
+  <insert id="insertSelective" parameterType="net.ninini.code.entity.po.THouseSlider">
     insert into t_house_slider
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pid != null">
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="net.ninini.code.entity.THouseSliderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="net.ninini.code.entity.po.THouseSliderExample" resultType="java.lang.Long">
     select count(*) from t_house_slider
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -203,7 +203,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="net.ninini.code.entity.THouseSlider">
+  <update id="updateByPrimaryKeySelective" parameterType="net.ninini.code.entity.po.THouseSlider">
     update t_house_slider
     <set>
       <if test="housePid != null">
@@ -218,14 +218,14 @@
     </set>
     where pid = #{pid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.ninini.code.entity.THouseSlider">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.ninini.code.entity.po.THouseSlider">
     update t_house_slider
     set house_pid = #{housePid,jdbcType=BIGINT},
       sort = #{sort,jdbcType=INTEGER},
       image_uri = #{imageUri,jdbcType=LONGVARCHAR}
     where pid = #{pid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="net.ninini.code.entity.THouseSlider">
+  <update id="updateByPrimaryKey" parameterType="net.ninini.code.entity.po.THouseSlider">
     update t_house_slider
     set house_pid = #{housePid,jdbcType=BIGINT},
       sort = #{sort,jdbcType=INTEGER}

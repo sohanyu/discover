@@ -76,6 +76,7 @@ public class RequestLogAspect {
             result = pjp.proceed();
         } catch (Throwable e) {
             logger.info("异常");
+            e.printStackTrace();
         }
         return result;
     }

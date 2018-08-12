@@ -1,8 +1,8 @@
 package net.ninini.code.dao.mysql;
 
 import java.util.List;
-import net.ninini.code.entity.THouseResource;
-import net.ninini.code.entity.THouseResourceExample;
+import net.ninini.code.entity.po.THouseResource;
+import net.ninini.code.entity.po.THouseResourceExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface THouseResourceMapper {

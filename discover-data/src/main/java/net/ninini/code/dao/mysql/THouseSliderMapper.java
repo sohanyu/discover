@@ -1,8 +1,8 @@
 package net.ninini.code.dao.mysql;
 
 import java.util.List;
-import net.ninini.code.entity.THouseSlider;
-import net.ninini.code.entity.THouseSliderExample;
+import net.ninini.code.entity.po.THouseSlider;
+import net.ninini.code.entity.po.THouseSliderExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface THouseSliderMapper {

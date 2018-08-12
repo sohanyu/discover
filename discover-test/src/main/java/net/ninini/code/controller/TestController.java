@@ -3,6 +3,8 @@ package net.ninini.code.controller;
 import com.google.common.collect.Maps;
 import net.ninini.code.annotation.RequestLog;
 import net.ninini.code.dao.mysql.THouseResourceMapper;
+import net.ninini.code.entity.parameter.HouseResourceParameter;
+import net.ninini.code.support.HouseResourceSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,9 @@ public class TestController {
     @Autowired
     THouseResourceMapper tHouseResourceMapper;
 
+    @Autowired
+    HouseResourceSupport houseResourceSupport;
+
     @RequestLog
     @RequestMapping("/test2")
     //@Cacheable(value="users", key="#name")
@@ -26,6 +31,18 @@ public class TestController {
         Map map = Maps.newHashMap();
         map.put("hello", tHouseResourceMapper.selectByPrimaryKey(0L));
         System.out.println("执行");
+        return map;
+
+    }
+
+    @RequestLog
+    @RequestMapping("/test")
+    //@Cacheable(value="users", key="#name")
+    public Object hello1(@RequestParam String name) {
+        Map map = Maps.newHashMap();
+        HouseResourceParameter p = new HouseResourceParameter();
+        p.setPid(222L);
+        map.put("data", houseResourceSupport.selectByExample(p));
         return map;
 
     }

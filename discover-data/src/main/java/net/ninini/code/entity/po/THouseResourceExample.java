@@ -1,4 +1,4 @@
-package net.ninini.code.entity;
+package net.ninini.code.entity.po;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
