@@ -1,6 +1,6 @@
 package net.ninini.code.entity.po;
 
-public class THouseSlider {
+public class THomeSlider {
     private Long pid;
 
     private Long housePid;

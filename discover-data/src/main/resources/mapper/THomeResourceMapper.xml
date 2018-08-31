@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.ninini.code.dao.mysql.THouseResourceMapper">
-  <resultMap id="BaseResultMap" type="net.ninini.code.entity.po.THouseResource">
+<mapper namespace="net.ninini.code.dao.mysql.THomeResourceMapper">
+  <resultMap id="BaseResultMap" type="net.ninini.code.entity.po.THomeResource">
     <id column="pid" jdbcType="BIGINT" property="pid" />
     <result column="area" jdbcType="INTEGER" property="area" />
     <result column="city" jdbcType="INTEGER" property="city" />
@@ -33,7 +33,7 @@
     <result column="del" jdbcType="INTEGER" property="del" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="net.ninini.code.entity.po.THouseResource">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="net.ninini.code.entity.po.THomeResource">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -103,7 +103,7 @@
   <sql id="Blob_Column_List">
     description
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="net.ninini.code.entity.po.THouseResourceExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -111,7 +111,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from t_house_resource
+    from t_home_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -119,13 +119,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="net.ninini.code.entity.po.THouseResourceExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_house_resource
+    from t_home_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -138,21 +138,21 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from t_house_resource
+    from t_home_resource
     where pid = #{pid,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from t_house_resource
+    delete from t_home_resource
     where pid = #{pid,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="net.ninini.code.entity.po.THouseResourceExample">
-    delete from t_house_resource
+  <delete id="deleteByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample">
+    delete from t_home_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="net.ninini.code.entity.po.THouseResource">
-    insert into t_house_resource (pid, area, city, 
+  <insert id="insert" parameterType="net.ninini.code.entity.po.THomeResource">
+    insert into t_home_resource (pid, area, city, 
       province, community, space, 
       floor, total_floor, address, 
       contacts_phone, contacts_wechat, contacts_name, 
@@ -175,8 +175,8 @@
       #{agentWechat,jdbcType=VARCHAR}, #{del,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
       #{description,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="net.ninini.code.entity.po.THouseResource">
-    insert into t_house_resource
+  <insert id="insertSelective" parameterType="net.ninini.code.entity.po.THomeResource">
+    insert into t_home_resource
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pid != null">
         pid,
@@ -368,14 +368,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="net.ninini.code.entity.po.THouseResourceExample" resultType="java.lang.Long">
-    select count(*) from t_house_resource
+  <select id="countByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultType="java.lang.Long">
+    select count(*) from t_home_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_house_resource
+    update t_home_resource
     <set>
       <if test="record.pid != null">
         pid = #{record.pid,jdbcType=BIGINT},
@@ -476,7 +476,7 @@
     </if>
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
-    update t_house_resource
+    update t_home_resource
     set pid = #{record.pid,jdbcType=BIGINT},
       area = #{record.area,jdbcType=INTEGER},
       city = #{record.city,jdbcType=INTEGER},
@@ -513,7 +513,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_house_resource
+    update t_home_resource
     set pid = #{record.pid,jdbcType=BIGINT},
       area = #{record.area,jdbcType=INTEGER},
       city = #{record.city,jdbcType=INTEGER},
@@ -548,8 +548,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="net.ninini.code.entity.po.THouseResource">
-    update t_house_resource
+  <update id="updateByPrimaryKeySelective" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
     <set>
       <if test="area != null">
         area = #{area,jdbcType=INTEGER},
@@ -644,8 +644,8 @@
     </set>
     where pid = #{pid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.ninini.code.entity.po.THouseResource">
-    update t_house_resource
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
     set area = #{area,jdbcType=INTEGER},
       city = #{city,jdbcType=INTEGER},
       province = #{province,jdbcType=INTEGER},
@@ -678,8 +678,8 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where pid = #{pid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="net.ninini.code.entity.po.THouseResource">
-    update t_house_resource
+  <update id="updateByPrimaryKey" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
     set area = #{area,jdbcType=INTEGER},
       city = #{city,jdbcType=INTEGER},
       province = #{province,jdbcType=INTEGER},

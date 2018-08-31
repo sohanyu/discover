@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class THouseResourceExample {
+public class THomeResourceExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public THouseResourceExample() {
+    public THomeResourceExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

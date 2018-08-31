@@ -3,14 +3,14 @@ package net.ninini.code.entity.po;
 import java.util.ArrayList;
 import java.util.List;
 
-public class THouseSliderExample {
+public class THomeSliderExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public THouseSliderExample() {
+    public THomeSliderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

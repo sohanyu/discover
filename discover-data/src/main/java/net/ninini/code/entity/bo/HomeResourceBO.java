@@ -1,29 +1,11 @@
-package net.ninini.code.entity.parameter;
+package net.ninini.code.entity.bo;
 
-import net.ninini.code.entity.po.THouseResourceExample;
+import net.ninini.code.entity.po.THomeResource;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class HouseResourceParameter {
-
-
-    public HouseResourceParameter() {
-
-    }
-
-    public THouseResourceExample getExample() {
-        THouseResourceExample example = new THouseResourceExample();
-        THouseResourceExample.Criteria criteria = example.createCriteria();
-
-        if (null != pid && 0L != pid) {
-            criteria.andPidEqualTo(pid);
-        }
-
-        return example;
-    }
-
-
+public class HomeResourceBO {
     private Long pid;
 
     private Integer area;
@@ -85,6 +67,45 @@ public class HouseResourceParameter {
     private Integer sort;
 
     private String description;
+
+
+    public HomeResourceBO() {
+    }
+
+    public HomeResourceBO(THomeResource tHomeResource) {
+        this.pid = tHomeResource.getPid();
+        this.area = tHomeResource.getArea();
+        this.city = tHomeResource.getCity();
+        this.province = tHomeResource.getProvince();
+        this.community = tHomeResource.getCommunity();
+        this.space = tHomeResource.getSpace();
+        this.floor = tHomeResource.getFloor();
+        this.totalFloor = tHomeResource.getTotalFloor();
+        this.address = tHomeResource.getAddress();
+        this.contactsPhone = tHomeResource.getContactsPhone();
+        this.contactsWechat = tHomeResource.getContactsWechat();
+        this.contactsName = tHomeResource.getContactsName();
+        this.userPid = tHomeResource.getUserPid();
+        this.houseType = tHomeResource.getHouseType();
+        this.propertyRight = tHomeResource.getPropertyRight();
+        this.createTime = tHomeResource.getCreateTime();
+        this.updateTime = tHomeResource.getUpdateTime();
+        this.rentStatus = tHomeResource.getRentStatus();
+        this.saleStatus = tHomeResource.getSaleStatus();
+        this.newStatus = tHomeResource.getNewStatus();
+        this.soilType = tHomeResource.getSoilType();
+        this.rentNormalPrice = tHomeResource.getRentNormalPrice();
+        this.saleNormalPrice = tHomeResource.getSaleNormalPrice();
+        this.purpose = tHomeResource.getPurpose();
+        this.incomeWay = tHomeResource.getIncomeWay();
+        this.agent = tHomeResource.getAgent();
+        this.agentPhone = tHomeResource.getAgentPhone();
+        this.agentWechat = tHomeResource.getAgentWechat();
+        this.del = tHomeResource.getDel();
+        this.sort = tHomeResource.getSort();
+        this.description = tHomeResource.getDescription();
+    }
+
 
     public Long getPid() {
         return pid;
