@@ -25,16 +25,16 @@ public class HomeResourceSupportImpl implements HomeResourceSupport {
 
     @Override
     public List<THomeResource> getHomeResourceListBase(HomeResourceParameter parameter) {
-        System.out.println("执行");
+        logger.info("缓存没有命中");
         return tHomeResourceMapper.selectByExampleWithBLOBs(parameter.getExample());
     }
 
     @Cacheable(value = "home", key = "#parameter.pid")
     @Override
     public List<HomeResourceBO> getHomeResourceList(HomeResourceParameter parameter) {
-        logger.info("执行SUPPORT");
+        logger.info("缓存没有命中");
         List<THomeResource> list = tHomeResourceMapper.selectByExampleWithBLOBs(parameter.getExample());
-        List<HomeResourceBO> result = new ArrayList<HomeResourceBO>();
+        List<HomeResourceBO> result = new ArrayList<>();
         list.forEach(home -> {
             HomeResourceBO homeResourceBO = new HomeResourceBO(home);
             result.add(homeResourceBO);

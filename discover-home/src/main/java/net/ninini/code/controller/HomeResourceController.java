@@ -22,7 +22,6 @@ public class HomeResourceController {
     @RequestLog
     @RequestMapping("/home-resource")
     public Object getHomeResourceList(HomeResourceParameter homeResourceParameter) {
-        logger.info("home-resource执行");
         return homeResourceService.getHomeResourceList(homeResourceParameter);
     }
 }

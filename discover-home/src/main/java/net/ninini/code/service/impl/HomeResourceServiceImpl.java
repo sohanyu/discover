@@ -23,7 +23,6 @@ public class HomeResourceServiceImpl implements HomeResourceService {
 
     @Override
     public List<HomeResourceBO> getHomeResourceList(HomeResourceParameter homeResourceParameter) {
-        logger.info("ServiceImpl");
         return homeResourceSupport.getHomeResourceList(homeResourceParameter);
     }
 }

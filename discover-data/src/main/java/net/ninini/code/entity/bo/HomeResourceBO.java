@@ -2,10 +2,11 @@ package net.ninini.code.entity.bo;
 
 import net.ninini.code.entity.po.THomeResource;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class HomeResourceBO {
+public class HomeResourceBO implements Serializable {
     private Long pid;
 
     private Integer area;
