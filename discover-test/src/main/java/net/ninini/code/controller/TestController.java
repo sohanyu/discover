@@ -3,7 +3,6 @@ package net.ninini.code.controller;
 import com.google.common.collect.Maps;
 import net.ninini.code.annotation.RequestLog;
 import net.ninini.code.dao.mysql.THomeResourceMapper;
-import net.ninini.code.entity.parameter.HomeResourceParameter;
 import net.ninini.code.support.HomeResourceSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

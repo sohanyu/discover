@@ -64,7 +64,55 @@ public class THomeResource {
 
     private Integer sort;
 
+    private Integer direction;
+
+    private Integer loft;
+
+    private Integer fitment;
+
+    private Date birthday;
+
+    private Integer trait;
+
+    private String seeTime;
+
+    private Integer optimization;
+
+    private BigDecimal realSpace;
+
+    private Integer buildStructure;
+
+    private String stairsRatio;
+
+    private Integer heating;
+
+    private Integer elevator;
+
+    private Date hangoutTime;
+
+    private Integer ownership;
+
+    private Date lastUpdateTime;
+
+    private Integer boughtTime;
+
+    private Integer propertyRightAttribute;
+
+    private String pledge;
+
+    private BigDecimal lat;
+
+    private BigDecimal lng;
+
+    private Integer buildingNumber;
+
+    private Integer houseUnit;
+
+    private Long agentPid;
+
     private String description;
+
+    private String permit;
 
     public Long getPid() {
         return pid;
@@ -306,11 +354,203 @@ public class THomeResource {
         this.sort = sort;
     }
 
+    public Integer getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Integer direction) {
+        this.direction = direction;
+    }
+
+    public Integer getLoft() {
+        return loft;
+    }
+
+    public void setLoft(Integer loft) {
+        this.loft = loft;
+    }
+
+    public Integer getFitment() {
+        return fitment;
+    }
+
+    public void setFitment(Integer fitment) {
+        this.fitment = fitment;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Integer getTrait() {
+        return trait;
+    }
+
+    public void setTrait(Integer trait) {
+        this.trait = trait;
+    }
+
+    public String getSeeTime() {
+        return seeTime;
+    }
+
+    public void setSeeTime(String seeTime) {
+        this.seeTime = seeTime == null ? null : seeTime.trim();
+    }
+
+    public Integer getOptimization() {
+        return optimization;
+    }
+
+    public void setOptimization(Integer optimization) {
+        this.optimization = optimization;
+    }
+
+    public BigDecimal getRealSpace() {
+        return realSpace;
+    }
+
+    public void setRealSpace(BigDecimal realSpace) {
+        this.realSpace = realSpace;
+    }
+
+    public Integer getBuildStructure() {
+        return buildStructure;
+    }
+
+    public void setBuildStructure(Integer buildStructure) {
+        this.buildStructure = buildStructure;
+    }
+
+    public String getStairsRatio() {
+        return stairsRatio;
+    }
+
+    public void setStairsRatio(String stairsRatio) {
+        this.stairsRatio = stairsRatio == null ? null : stairsRatio.trim();
+    }
+
+    public Integer getHeating() {
+        return heating;
+    }
+
+    public void setHeating(Integer heating) {
+        this.heating = heating;
+    }
+
+    public Integer getElevator() {
+        return elevator;
+    }
+
+    public void setElevator(Integer elevator) {
+        this.elevator = elevator;
+    }
+
+    public Date getHangoutTime() {
+        return hangoutTime;
+    }
+
+    public void setHangoutTime(Date hangoutTime) {
+        this.hangoutTime = hangoutTime;
+    }
+
+    public Integer getOwnership() {
+        return ownership;
+    }
+
+    public void setOwnership(Integer ownership) {
+        this.ownership = ownership;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Integer getBoughtTime() {
+        return boughtTime;
+    }
+
+    public void setBoughtTime(Integer boughtTime) {
+        this.boughtTime = boughtTime;
+    }
+
+    public Integer getPropertyRightAttribute() {
+        return propertyRightAttribute;
+    }
+
+    public void setPropertyRightAttribute(Integer propertyRightAttribute) {
+        this.propertyRightAttribute = propertyRightAttribute;
+    }
+
+    public String getPledge() {
+        return pledge;
+    }
+
+    public void setPledge(String pledge) {
+        this.pledge = pledge == null ? null : pledge.trim();
+    }
+
+    public BigDecimal getLat() {
+        return lat;
+    }
+
+    public void setLat(BigDecimal lat) {
+        this.lat = lat;
+    }
+
+    public BigDecimal getLng() {
+        return lng;
+    }
+
+    public void setLng(BigDecimal lng) {
+        this.lng = lng;
+    }
+
+    public Integer getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public void setBuildingNumber(Integer buildingNumber) {
+        this.buildingNumber = buildingNumber;
+    }
+
+    public Integer getHouseUnit() {
+        return houseUnit;
+    }
+
+    public void setHouseUnit(Integer houseUnit) {
+        this.houseUnit = houseUnit;
+    }
+
+    public Long getAgentPid() {
+        return agentPid;
+    }
+
+    public void setAgentPid(Long agentPid) {
+        this.agentPid = agentPid;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
+    }
+
+    public String getPermit() {
+        return permit;
+    }
+
+    public void setPermit(String permit) {
+        this.permit = permit == null ? null : permit.trim();
     }
 }
