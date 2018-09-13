@@ -1136,4 +1136,1139 @@
       agent_pid = #{agentPid,jdbcType=BIGINT}
     where pid = #{pid,jdbcType=BIGINT}
   </update>
+  <resultMap id="BaseResultMap" type="net.ninini.code.entity.po.THomeResource">
+    <id column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="area" jdbcType="INTEGER" property="area" />
+    <result column="city" jdbcType="INTEGER" property="city" />
+    <result column="province" jdbcType="INTEGER" property="province" />
+    <result column="community" jdbcType="BIGINT" property="community" />
+    <result column="space" jdbcType="DECIMAL" property="space" />
+    <result column="floor" jdbcType="INTEGER" property="floor" />
+    <result column="total_floor" jdbcType="INTEGER" property="totalFloor" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="contacts_phone" jdbcType="VARCHAR" property="contactsPhone" />
+    <result column="contacts_wechat" jdbcType="VARCHAR" property="contactsWechat" />
+    <result column="contacts_name" jdbcType="VARCHAR" property="contactsName" />
+    <result column="user_pid" jdbcType="BIGINT" property="userPid" />
+    <result column="house_type" jdbcType="BIGINT" property="houseType" />
+    <result column="property_right" jdbcType="INTEGER" property="propertyRight" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="rent_status" jdbcType="INTEGER" property="rentStatus" />
+    <result column="sale_status" jdbcType="INTEGER" property="saleStatus" />
+    <result column="new_status" jdbcType="INTEGER" property="newStatus" />
+    <result column="soil_type" jdbcType="INTEGER" property="soilType" />
+    <result column="rent_normal_price" jdbcType="DECIMAL" property="rentNormalPrice" />
+    <result column="sale_normal_price" jdbcType="DECIMAL" property="saleNormalPrice" />
+    <result column="purpose" jdbcType="INTEGER" property="purpose" />
+    <result column="income_way" jdbcType="VARCHAR" property="incomeWay" />
+    <result column="agent" jdbcType="INTEGER" property="agent" />
+    <result column="agent_phone" jdbcType="VARCHAR" property="agentPhone" />
+    <result column="agent_wechat" jdbcType="VARCHAR" property="agentWechat" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="direction" jdbcType="INTEGER" property="direction" />
+    <result column="loft" jdbcType="INTEGER" property="loft" />
+    <result column="fitment" jdbcType="INTEGER" property="fitment" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="trait" jdbcType="INTEGER" property="trait" />
+    <result column="see_time" jdbcType="VARCHAR" property="seeTime" />
+    <result column="optimization" jdbcType="INTEGER" property="optimization" />
+    <result column="real_space" jdbcType="DECIMAL" property="realSpace" />
+    <result column="build_structure" jdbcType="INTEGER" property="buildStructure" />
+    <result column="stairs_ratio" jdbcType="VARCHAR" property="stairsRatio" />
+    <result column="heating" jdbcType="INTEGER" property="heating" />
+    <result column="elevator" jdbcType="INTEGER" property="elevator" />
+    <result column="hangout_time" jdbcType="TIMESTAMP" property="hangoutTime" />
+    <result column="ownership" jdbcType="INTEGER" property="ownership" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="bought_time" jdbcType="INTEGER" property="boughtTime" />
+    <result column="property_right_attribute" jdbcType="INTEGER" property="propertyRightAttribute" />
+    <result column="pledge" jdbcType="VARCHAR" property="pledge" />
+    <result column="lat" jdbcType="DECIMAL" property="lat" />
+    <result column="lng" jdbcType="DECIMAL" property="lng" />
+    <result column="building_number" jdbcType="INTEGER" property="buildingNumber" />
+    <result column="house_unit" jdbcType="INTEGER" property="houseUnit" />
+    <result column="agent_pid" jdbcType="BIGINT" property="agentPid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="net.ninini.code.entity.po.THomeResource">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    <result column="permit" jdbcType="LONGVARCHAR" property="permit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pid, area, city, province, community, space, floor, total_floor, address, contacts_phone, 
+    contacts_wechat, contacts_name, user_pid, house_type, property_right, create_time, 
+    update_time, rent_status, sale_status, new_status, soil_type, rent_normal_price, 
+    sale_normal_price, purpose, income_way, agent, agent_phone, agent_wechat, del, sort, 
+    direction, loft, fitment, birthday, trait, see_time, optimization, real_space, build_structure, 
+    stairs_ratio, heating, elevator, hangout_time, ownership, last_update_time, bought_time, 
+    property_right_attribute, pledge, lat, lng, building_number, house_unit, agent_pid
+  </sql>
+  <sql id="Blob_Column_List">
+    description, permit
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_home_resource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_home_resource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_home_resource
+    where pid = #{pid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_home_resource
+    where pid = #{pid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample">
+    delete from t_home_resource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="net.ninini.code.entity.po.THomeResource">
+    insert into t_home_resource (pid, area, city, 
+      province, community, space, 
+      floor, total_floor, address, 
+      contacts_phone, contacts_wechat, contacts_name, 
+      user_pid, house_type, property_right, 
+      create_time, update_time, rent_status, 
+      sale_status, new_status, soil_type, 
+      rent_normal_price, sale_normal_price, purpose, 
+      income_way, agent, agent_phone, 
+      agent_wechat, del, sort, 
+      direction, loft, fitment, 
+      birthday, trait, see_time, 
+      optimization, real_space, build_structure, 
+      stairs_ratio, heating, elevator, 
+      hangout_time, ownership, last_update_time, 
+      bought_time, property_right_attribute, pledge, 
+      lat, lng, building_number, 
+      house_unit, agent_pid, description, 
+      permit)
+    values (#{pid,jdbcType=BIGINT}, #{area,jdbcType=INTEGER}, #{city,jdbcType=INTEGER}, 
+      #{province,jdbcType=INTEGER}, #{community,jdbcType=BIGINT}, #{space,jdbcType=DECIMAL}, 
+      #{floor,jdbcType=INTEGER}, #{totalFloor,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
+      #{contactsPhone,jdbcType=VARCHAR}, #{contactsWechat,jdbcType=VARCHAR}, #{contactsName,jdbcType=VARCHAR}, 
+      #{userPid,jdbcType=BIGINT}, #{houseType,jdbcType=BIGINT}, #{propertyRight,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{rentStatus,jdbcType=INTEGER}, 
+      #{saleStatus,jdbcType=INTEGER}, #{newStatus,jdbcType=INTEGER}, #{soilType,jdbcType=INTEGER}, 
+      #{rentNormalPrice,jdbcType=DECIMAL}, #{saleNormalPrice,jdbcType=DECIMAL}, #{purpose,jdbcType=INTEGER}, 
+      #{incomeWay,jdbcType=VARCHAR}, #{agent,jdbcType=INTEGER}, #{agentPhone,jdbcType=VARCHAR}, 
+      #{agentWechat,jdbcType=VARCHAR}, #{del,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
+      #{direction,jdbcType=INTEGER}, #{loft,jdbcType=INTEGER}, #{fitment,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{trait,jdbcType=INTEGER}, #{seeTime,jdbcType=VARCHAR}, 
+      #{optimization,jdbcType=INTEGER}, #{realSpace,jdbcType=DECIMAL}, #{buildStructure,jdbcType=INTEGER}, 
+      #{stairsRatio,jdbcType=VARCHAR}, #{heating,jdbcType=INTEGER}, #{elevator,jdbcType=INTEGER}, 
+      #{hangoutTime,jdbcType=TIMESTAMP}, #{ownership,jdbcType=INTEGER}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{boughtTime,jdbcType=INTEGER}, #{propertyRightAttribute,jdbcType=INTEGER}, #{pledge,jdbcType=VARCHAR}, 
+      #{lat,jdbcType=DECIMAL}, #{lng,jdbcType=DECIMAL}, #{buildingNumber,jdbcType=INTEGER}, 
+      #{houseUnit,jdbcType=INTEGER}, #{agentPid,jdbcType=BIGINT}, #{description,jdbcType=LONGVARCHAR}, 
+      #{permit,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="net.ninini.code.entity.po.THomeResource">
+    insert into t_home_resource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="community != null">
+        community,
+      </if>
+      <if test="space != null">
+        space,
+      </if>
+      <if test="floor != null">
+        floor,
+      </if>
+      <if test="totalFloor != null">
+        total_floor,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="contactsPhone != null">
+        contacts_phone,
+      </if>
+      <if test="contactsWechat != null">
+        contacts_wechat,
+      </if>
+      <if test="contactsName != null">
+        contacts_name,
+      </if>
+      <if test="userPid != null">
+        user_pid,
+      </if>
+      <if test="houseType != null">
+        house_type,
+      </if>
+      <if test="propertyRight != null">
+        property_right,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rentStatus != null">
+        rent_status,
+      </if>
+      <if test="saleStatus != null">
+        sale_status,
+      </if>
+      <if test="newStatus != null">
+        new_status,
+      </if>
+      <if test="soilType != null">
+        soil_type,
+      </if>
+      <if test="rentNormalPrice != null">
+        rent_normal_price,
+      </if>
+      <if test="saleNormalPrice != null">
+        sale_normal_price,
+      </if>
+      <if test="purpose != null">
+        purpose,
+      </if>
+      <if test="incomeWay != null">
+        income_way,
+      </if>
+      <if test="agent != null">
+        agent,
+      </if>
+      <if test="agentPhone != null">
+        agent_phone,
+      </if>
+      <if test="agentWechat != null">
+        agent_wechat,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="direction != null">
+        direction,
+      </if>
+      <if test="loft != null">
+        loft,
+      </if>
+      <if test="fitment != null">
+        fitment,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="trait != null">
+        trait,
+      </if>
+      <if test="seeTime != null">
+        see_time,
+      </if>
+      <if test="optimization != null">
+        optimization,
+      </if>
+      <if test="realSpace != null">
+        real_space,
+      </if>
+      <if test="buildStructure != null">
+        build_structure,
+      </if>
+      <if test="stairsRatio != null">
+        stairs_ratio,
+      </if>
+      <if test="heating != null">
+        heating,
+      </if>
+      <if test="elevator != null">
+        elevator,
+      </if>
+      <if test="hangoutTime != null">
+        hangout_time,
+      </if>
+      <if test="ownership != null">
+        ownership,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+      <if test="boughtTime != null">
+        bought_time,
+      </if>
+      <if test="propertyRightAttribute != null">
+        property_right_attribute,
+      </if>
+      <if test="pledge != null">
+        pledge,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="lng != null">
+        lng,
+      </if>
+      <if test="buildingNumber != null">
+        building_number,
+      </if>
+      <if test="houseUnit != null">
+        house_unit,
+      </if>
+      <if test="agentPid != null">
+        agent_pid,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="permit != null">
+        permit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=INTEGER},
+      </if>
+      <if test="community != null">
+        #{community,jdbcType=BIGINT},
+      </if>
+      <if test="space != null">
+        #{space,jdbcType=DECIMAL},
+      </if>
+      <if test="floor != null">
+        #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="totalFloor != null">
+        #{totalFloor,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsPhone != null">
+        #{contactsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsWechat != null">
+        #{contactsWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsName != null">
+        #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPid != null">
+        #{userPid,jdbcType=BIGINT},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=BIGINT},
+      </if>
+      <if test="propertyRight != null">
+        #{propertyRight,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentStatus != null">
+        #{rentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="saleStatus != null">
+        #{saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newStatus != null">
+        #{newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="soilType != null">
+        #{soilType,jdbcType=INTEGER},
+      </if>
+      <if test="rentNormalPrice != null">
+        #{rentNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleNormalPrice != null">
+        #{saleNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="purpose != null">
+        #{purpose,jdbcType=INTEGER},
+      </if>
+      <if test="incomeWay != null">
+        #{incomeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null">
+        #{agent,jdbcType=INTEGER},
+      </if>
+      <if test="agentPhone != null">
+        #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="agentWechat != null">
+        #{agentWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=INTEGER},
+      </if>
+      <if test="loft != null">
+        #{loft,jdbcType=INTEGER},
+      </if>
+      <if test="fitment != null">
+        #{fitment,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trait != null">
+        #{trait,jdbcType=INTEGER},
+      </if>
+      <if test="seeTime != null">
+        #{seeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="optimization != null">
+        #{optimization,jdbcType=INTEGER},
+      </if>
+      <if test="realSpace != null">
+        #{realSpace,jdbcType=DECIMAL},
+      </if>
+      <if test="buildStructure != null">
+        #{buildStructure,jdbcType=INTEGER},
+      </if>
+      <if test="stairsRatio != null">
+        #{stairsRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="heating != null">
+        #{heating,jdbcType=INTEGER},
+      </if>
+      <if test="elevator != null">
+        #{elevator,jdbcType=INTEGER},
+      </if>
+      <if test="hangoutTime != null">
+        #{hangoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownership != null">
+        #{ownership,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="boughtTime != null">
+        #{boughtTime,jdbcType=INTEGER},
+      </if>
+      <if test="propertyRightAttribute != null">
+        #{propertyRightAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="pledge != null">
+        #{pledge,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingNumber != null">
+        #{buildingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="houseUnit != null">
+        #{houseUnit,jdbcType=INTEGER},
+      </if>
+      <if test="agentPid != null">
+        #{agentPid,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="permit != null">
+        #{permit,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="net.ninini.code.entity.po.THomeResourceExample" resultType="java.lang.Long">
+    select count(*) from t_home_resource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_home_resource
+    <set>
+      <if test="record.pid != null">
+        pid = #{record.pid,jdbcType=BIGINT},
+      </if>
+      <if test="record.area != null">
+        area = #{record.area,jdbcType=INTEGER},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=INTEGER},
+      </if>
+      <if test="record.province != null">
+        province = #{record.province,jdbcType=INTEGER},
+      </if>
+      <if test="record.community != null">
+        community = #{record.community,jdbcType=BIGINT},
+      </if>
+      <if test="record.space != null">
+        space = #{record.space,jdbcType=DECIMAL},
+      </if>
+      <if test="record.floor != null">
+        floor = #{record.floor,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalFloor != null">
+        total_floor = #{record.totalFloor,jdbcType=INTEGER},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactsPhone != null">
+        contacts_phone = #{record.contactsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactsWechat != null">
+        contacts_wechat = #{record.contactsWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactsName != null">
+        contacts_name = #{record.contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPid != null">
+        user_pid = #{record.userPid,jdbcType=BIGINT},
+      </if>
+      <if test="record.houseType != null">
+        house_type = #{record.houseType,jdbcType=BIGINT},
+      </if>
+      <if test="record.propertyRight != null">
+        property_right = #{record.propertyRight,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rentStatus != null">
+        rent_status = #{record.rentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleStatus != null">
+        sale_status = #{record.saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.newStatus != null">
+        new_status = #{record.newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.soilType != null">
+        soil_type = #{record.soilType,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentNormalPrice != null">
+        rent_normal_price = #{record.rentNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.saleNormalPrice != null">
+        sale_normal_price = #{record.saleNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.purpose != null">
+        purpose = #{record.purpose,jdbcType=INTEGER},
+      </if>
+      <if test="record.incomeWay != null">
+        income_way = #{record.incomeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agent != null">
+        agent = #{record.agent,jdbcType=INTEGER},
+      </if>
+      <if test="record.agentPhone != null">
+        agent_phone = #{record.agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agentWechat != null">
+        agent_wechat = #{record.agentWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.del != null">
+        del = #{record.del,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.direction != null">
+        direction = #{record.direction,jdbcType=INTEGER},
+      </if>
+      <if test="record.loft != null">
+        loft = #{record.loft,jdbcType=INTEGER},
+      </if>
+      <if test="record.fitment != null">
+        fitment = #{record.fitment,jdbcType=INTEGER},
+      </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.trait != null">
+        trait = #{record.trait,jdbcType=INTEGER},
+      </if>
+      <if test="record.seeTime != null">
+        see_time = #{record.seeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optimization != null">
+        optimization = #{record.optimization,jdbcType=INTEGER},
+      </if>
+      <if test="record.realSpace != null">
+        real_space = #{record.realSpace,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildStructure != null">
+        build_structure = #{record.buildStructure,jdbcType=INTEGER},
+      </if>
+      <if test="record.stairsRatio != null">
+        stairs_ratio = #{record.stairsRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.heating != null">
+        heating = #{record.heating,jdbcType=INTEGER},
+      </if>
+      <if test="record.elevator != null">
+        elevator = #{record.elevator,jdbcType=INTEGER},
+      </if>
+      <if test="record.hangoutTime != null">
+        hangout_time = #{record.hangoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ownership != null">
+        ownership = #{record.ownership,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastUpdateTime != null">
+        last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.boughtTime != null">
+        bought_time = #{record.boughtTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.propertyRightAttribute != null">
+        property_right_attribute = #{record.propertyRightAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="record.pledge != null">
+        pledge = #{record.pledge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lat != null">
+        lat = #{record.lat,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lng != null">
+        lng = #{record.lng,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildingNumber != null">
+        building_number = #{record.buildingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseUnit != null">
+        house_unit = #{record.houseUnit,jdbcType=INTEGER},
+      </if>
+      <if test="record.agentPid != null">
+        agent_pid = #{record.agentPid,jdbcType=BIGINT},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.permit != null">
+        permit = #{record.permit,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_home_resource
+    set pid = #{record.pid,jdbcType=BIGINT},
+      area = #{record.area,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=INTEGER},
+      community = #{record.community,jdbcType=BIGINT},
+      space = #{record.space,jdbcType=DECIMAL},
+      floor = #{record.floor,jdbcType=INTEGER},
+      total_floor = #{record.totalFloor,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      contacts_phone = #{record.contactsPhone,jdbcType=VARCHAR},
+      contacts_wechat = #{record.contactsWechat,jdbcType=VARCHAR},
+      contacts_name = #{record.contactsName,jdbcType=VARCHAR},
+      user_pid = #{record.userPid,jdbcType=BIGINT},
+      house_type = #{record.houseType,jdbcType=BIGINT},
+      property_right = #{record.propertyRight,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      rent_status = #{record.rentStatus,jdbcType=INTEGER},
+      sale_status = #{record.saleStatus,jdbcType=INTEGER},
+      new_status = #{record.newStatus,jdbcType=INTEGER},
+      soil_type = #{record.soilType,jdbcType=INTEGER},
+      rent_normal_price = #{record.rentNormalPrice,jdbcType=DECIMAL},
+      sale_normal_price = #{record.saleNormalPrice,jdbcType=DECIMAL},
+      purpose = #{record.purpose,jdbcType=INTEGER},
+      income_way = #{record.incomeWay,jdbcType=VARCHAR},
+      agent = #{record.agent,jdbcType=INTEGER},
+      agent_phone = #{record.agentPhone,jdbcType=VARCHAR},
+      agent_wechat = #{record.agentWechat,jdbcType=VARCHAR},
+      del = #{record.del,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      direction = #{record.direction,jdbcType=INTEGER},
+      loft = #{record.loft,jdbcType=INTEGER},
+      fitment = #{record.fitment,jdbcType=INTEGER},
+      birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      trait = #{record.trait,jdbcType=INTEGER},
+      see_time = #{record.seeTime,jdbcType=VARCHAR},
+      optimization = #{record.optimization,jdbcType=INTEGER},
+      real_space = #{record.realSpace,jdbcType=DECIMAL},
+      build_structure = #{record.buildStructure,jdbcType=INTEGER},
+      stairs_ratio = #{record.stairsRatio,jdbcType=VARCHAR},
+      heating = #{record.heating,jdbcType=INTEGER},
+      elevator = #{record.elevator,jdbcType=INTEGER},
+      hangout_time = #{record.hangoutTime,jdbcType=TIMESTAMP},
+      ownership = #{record.ownership,jdbcType=INTEGER},
+      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      bought_time = #{record.boughtTime,jdbcType=INTEGER},
+      property_right_attribute = #{record.propertyRightAttribute,jdbcType=INTEGER},
+      pledge = #{record.pledge,jdbcType=VARCHAR},
+      lat = #{record.lat,jdbcType=DECIMAL},
+      lng = #{record.lng,jdbcType=DECIMAL},
+      building_number = #{record.buildingNumber,jdbcType=INTEGER},
+      house_unit = #{record.houseUnit,jdbcType=INTEGER},
+      agent_pid = #{record.agentPid,jdbcType=BIGINT},
+      description = #{record.description,jdbcType=LONGVARCHAR},
+      permit = #{record.permit,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_home_resource
+    set pid = #{record.pid,jdbcType=BIGINT},
+      area = #{record.area,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=INTEGER},
+      community = #{record.community,jdbcType=BIGINT},
+      space = #{record.space,jdbcType=DECIMAL},
+      floor = #{record.floor,jdbcType=INTEGER},
+      total_floor = #{record.totalFloor,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      contacts_phone = #{record.contactsPhone,jdbcType=VARCHAR},
+      contacts_wechat = #{record.contactsWechat,jdbcType=VARCHAR},
+      contacts_name = #{record.contactsName,jdbcType=VARCHAR},
+      user_pid = #{record.userPid,jdbcType=BIGINT},
+      house_type = #{record.houseType,jdbcType=BIGINT},
+      property_right = #{record.propertyRight,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      rent_status = #{record.rentStatus,jdbcType=INTEGER},
+      sale_status = #{record.saleStatus,jdbcType=INTEGER},
+      new_status = #{record.newStatus,jdbcType=INTEGER},
+      soil_type = #{record.soilType,jdbcType=INTEGER},
+      rent_normal_price = #{record.rentNormalPrice,jdbcType=DECIMAL},
+      sale_normal_price = #{record.saleNormalPrice,jdbcType=DECIMAL},
+      purpose = #{record.purpose,jdbcType=INTEGER},
+      income_way = #{record.incomeWay,jdbcType=VARCHAR},
+      agent = #{record.agent,jdbcType=INTEGER},
+      agent_phone = #{record.agentPhone,jdbcType=VARCHAR},
+      agent_wechat = #{record.agentWechat,jdbcType=VARCHAR},
+      del = #{record.del,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      direction = #{record.direction,jdbcType=INTEGER},
+      loft = #{record.loft,jdbcType=INTEGER},
+      fitment = #{record.fitment,jdbcType=INTEGER},
+      birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      trait = #{record.trait,jdbcType=INTEGER},
+      see_time = #{record.seeTime,jdbcType=VARCHAR},
+      optimization = #{record.optimization,jdbcType=INTEGER},
+      real_space = #{record.realSpace,jdbcType=DECIMAL},
+      build_structure = #{record.buildStructure,jdbcType=INTEGER},
+      stairs_ratio = #{record.stairsRatio,jdbcType=VARCHAR},
+      heating = #{record.heating,jdbcType=INTEGER},
+      elevator = #{record.elevator,jdbcType=INTEGER},
+      hangout_time = #{record.hangoutTime,jdbcType=TIMESTAMP},
+      ownership = #{record.ownership,jdbcType=INTEGER},
+      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      bought_time = #{record.boughtTime,jdbcType=INTEGER},
+      property_right_attribute = #{record.propertyRightAttribute,jdbcType=INTEGER},
+      pledge = #{record.pledge,jdbcType=VARCHAR},
+      lat = #{record.lat,jdbcType=DECIMAL},
+      lng = #{record.lng,jdbcType=DECIMAL},
+      building_number = #{record.buildingNumber,jdbcType=INTEGER},
+      house_unit = #{record.houseUnit,jdbcType=INTEGER},
+      agent_pid = #{record.agentPid,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
+    <set>
+      <if test="area != null">
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=INTEGER},
+      </if>
+      <if test="community != null">
+        community = #{community,jdbcType=BIGINT},
+      </if>
+      <if test="space != null">
+        space = #{space,jdbcType=DECIMAL},
+      </if>
+      <if test="floor != null">
+        floor = #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="totalFloor != null">
+        total_floor = #{totalFloor,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsPhone != null">
+        contacts_phone = #{contactsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsWechat != null">
+        contacts_wechat = #{contactsWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsName != null">
+        contacts_name = #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPid != null">
+        user_pid = #{userPid,jdbcType=BIGINT},
+      </if>
+      <if test="houseType != null">
+        house_type = #{houseType,jdbcType=BIGINT},
+      </if>
+      <if test="propertyRight != null">
+        property_right = #{propertyRight,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentStatus != null">
+        rent_status = #{rentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="saleStatus != null">
+        sale_status = #{saleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newStatus != null">
+        new_status = #{newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="soilType != null">
+        soil_type = #{soilType,jdbcType=INTEGER},
+      </if>
+      <if test="rentNormalPrice != null">
+        rent_normal_price = #{rentNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleNormalPrice != null">
+        sale_normal_price = #{saleNormalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="purpose != null">
+        purpose = #{purpose,jdbcType=INTEGER},
+      </if>
+      <if test="incomeWay != null">
+        income_way = #{incomeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null">
+        agent = #{agent,jdbcType=INTEGER},
+      </if>
+      <if test="agentPhone != null">
+        agent_phone = #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="agentWechat != null">
+        agent_wechat = #{agentWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        del = #{del,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="direction != null">
+        direction = #{direction,jdbcType=INTEGER},
+      </if>
+      <if test="loft != null">
+        loft = #{loft,jdbcType=INTEGER},
+      </if>
+      <if test="fitment != null">
+        fitment = #{fitment,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trait != null">
+        trait = #{trait,jdbcType=INTEGER},
+      </if>
+      <if test="seeTime != null">
+        see_time = #{seeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="optimization != null">
+        optimization = #{optimization,jdbcType=INTEGER},
+      </if>
+      <if test="realSpace != null">
+        real_space = #{realSpace,jdbcType=DECIMAL},
+      </if>
+      <if test="buildStructure != null">
+        build_structure = #{buildStructure,jdbcType=INTEGER},
+      </if>
+      <if test="stairsRatio != null">
+        stairs_ratio = #{stairsRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="heating != null">
+        heating = #{heating,jdbcType=INTEGER},
+      </if>
+      <if test="elevator != null">
+        elevator = #{elevator,jdbcType=INTEGER},
+      </if>
+      <if test="hangoutTime != null">
+        hangout_time = #{hangoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownership != null">
+        ownership = #{ownership,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="boughtTime != null">
+        bought_time = #{boughtTime,jdbcType=INTEGER},
+      </if>
+      <if test="propertyRightAttribute != null">
+        property_right_attribute = #{propertyRightAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="pledge != null">
+        pledge = #{pledge,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=DECIMAL},
+      </if>
+      <if test="lng != null">
+        lng = #{lng,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingNumber != null">
+        building_number = #{buildingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="houseUnit != null">
+        house_unit = #{houseUnit,jdbcType=INTEGER},
+      </if>
+      <if test="agentPid != null">
+        agent_pid = #{agentPid,jdbcType=BIGINT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="permit != null">
+        permit = #{permit,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where pid = #{pid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
+    set area = #{area,jdbcType=INTEGER},
+      city = #{city,jdbcType=INTEGER},
+      province = #{province,jdbcType=INTEGER},
+      community = #{community,jdbcType=BIGINT},
+      space = #{space,jdbcType=DECIMAL},
+      floor = #{floor,jdbcType=INTEGER},
+      total_floor = #{totalFloor,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      contacts_phone = #{contactsPhone,jdbcType=VARCHAR},
+      contacts_wechat = #{contactsWechat,jdbcType=VARCHAR},
+      contacts_name = #{contactsName,jdbcType=VARCHAR},
+      user_pid = #{userPid,jdbcType=BIGINT},
+      house_type = #{houseType,jdbcType=BIGINT},
+      property_right = #{propertyRight,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      rent_status = #{rentStatus,jdbcType=INTEGER},
+      sale_status = #{saleStatus,jdbcType=INTEGER},
+      new_status = #{newStatus,jdbcType=INTEGER},
+      soil_type = #{soilType,jdbcType=INTEGER},
+      rent_normal_price = #{rentNormalPrice,jdbcType=DECIMAL},
+      sale_normal_price = #{saleNormalPrice,jdbcType=DECIMAL},
+      purpose = #{purpose,jdbcType=INTEGER},
+      income_way = #{incomeWay,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=INTEGER},
+      agent_phone = #{agentPhone,jdbcType=VARCHAR},
+      agent_wechat = #{agentWechat,jdbcType=VARCHAR},
+      del = #{del,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      direction = #{direction,jdbcType=INTEGER},
+      loft = #{loft,jdbcType=INTEGER},
+      fitment = #{fitment,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      trait = #{trait,jdbcType=INTEGER},
+      see_time = #{seeTime,jdbcType=VARCHAR},
+      optimization = #{optimization,jdbcType=INTEGER},
+      real_space = #{realSpace,jdbcType=DECIMAL},
+      build_structure = #{buildStructure,jdbcType=INTEGER},
+      stairs_ratio = #{stairsRatio,jdbcType=VARCHAR},
+      heating = #{heating,jdbcType=INTEGER},
+      elevator = #{elevator,jdbcType=INTEGER},
+      hangout_time = #{hangoutTime,jdbcType=TIMESTAMP},
+      ownership = #{ownership,jdbcType=INTEGER},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      bought_time = #{boughtTime,jdbcType=INTEGER},
+      property_right_attribute = #{propertyRightAttribute,jdbcType=INTEGER},
+      pledge = #{pledge,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DECIMAL},
+      lng = #{lng,jdbcType=DECIMAL},
+      building_number = #{buildingNumber,jdbcType=INTEGER},
+      house_unit = #{houseUnit,jdbcType=INTEGER},
+      agent_pid = #{agentPid,jdbcType=BIGINT},
+      description = #{description,jdbcType=LONGVARCHAR},
+      permit = #{permit,jdbcType=LONGVARCHAR}
+    where pid = #{pid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.ninini.code.entity.po.THomeResource">
+    update t_home_resource
+    set area = #{area,jdbcType=INTEGER},
+      city = #{city,jdbcType=INTEGER},
+      province = #{province,jdbcType=INTEGER},
+      community = #{community,jdbcType=BIGINT},
+      space = #{space,jdbcType=DECIMAL},
+      floor = #{floor,jdbcType=INTEGER},
+      total_floor = #{totalFloor,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      contacts_phone = #{contactsPhone,jdbcType=VARCHAR},
+      contacts_wechat = #{contactsWechat,jdbcType=VARCHAR},
+      contacts_name = #{contactsName,jdbcType=VARCHAR},
+      user_pid = #{userPid,jdbcType=BIGINT},
+      house_type = #{houseType,jdbcType=BIGINT},
+      property_right = #{propertyRight,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      rent_status = #{rentStatus,jdbcType=INTEGER},
+      sale_status = #{saleStatus,jdbcType=INTEGER},
+      new_status = #{newStatus,jdbcType=INTEGER},
+      soil_type = #{soilType,jdbcType=INTEGER},
+      rent_normal_price = #{rentNormalPrice,jdbcType=DECIMAL},
+      sale_normal_price = #{saleNormalPrice,jdbcType=DECIMAL},
+      purpose = #{purpose,jdbcType=INTEGER},
+      income_way = #{incomeWay,jdbcType=VARCHAR},
+      agent = #{agent,jdbcType=INTEGER},
+      agent_phone = #{agentPhone,jdbcType=VARCHAR},
+      agent_wechat = #{agentWechat,jdbcType=VARCHAR},
+      del = #{del,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      direction = #{direction,jdbcType=INTEGER},
+      loft = #{loft,jdbcType=INTEGER},
+      fitment = #{fitment,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      trait = #{trait,jdbcType=INTEGER},
+      see_time = #{seeTime,jdbcType=VARCHAR},
+      optimization = #{optimization,jdbcType=INTEGER},
+      real_space = #{realSpace,jdbcType=DECIMAL},
+      build_structure = #{buildStructure,jdbcType=INTEGER},
+      stairs_ratio = #{stairsRatio,jdbcType=VARCHAR},
+      heating = #{heating,jdbcType=INTEGER},
+      elevator = #{elevator,jdbcType=INTEGER},
+      hangout_time = #{hangoutTime,jdbcType=TIMESTAMP},
+      ownership = #{ownership,jdbcType=INTEGER},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      bought_time = #{boughtTime,jdbcType=INTEGER},
+      property_right_attribute = #{propertyRightAttribute,jdbcType=INTEGER},
+      pledge = #{pledge,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DECIMAL},
+      lng = #{lng,jdbcType=DECIMAL},
+      building_number = #{buildingNumber,jdbcType=INTEGER},
+      house_unit = #{houseUnit,jdbcType=INTEGER},
+      agent_pid = #{agentPid,jdbcType=BIGINT}
+    where pid = #{pid,jdbcType=BIGINT}
+  </update>
 </mapper>
